@@ -1,5 +1,5 @@
 import UserScheduleScreen from "@/src/screens/user/UserScheduleScreen";
 
-export default function UserSchedule() {
+export default function ScheduleScreen() {
   return <UserScheduleScreen />;
 }

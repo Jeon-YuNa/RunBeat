@@ -1,5 +1,5 @@
 import ChatRoomScreen from "@/src/screens/common/ChatRoomScreen";
 
-export default function UserChat() {
+export default function ChatScreen() {
   return <ChatRoomScreen />;
 }

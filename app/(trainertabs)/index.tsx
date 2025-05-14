@@ -1,5 +1,5 @@
 import TrainerHomeScreen from "@/src/screens/trainer/TrainerHomeScreen";
 
-export default function UserHome() {
+export default function TrainerIndexScreen() {
   return <TrainerHomeScreen />;
 }
