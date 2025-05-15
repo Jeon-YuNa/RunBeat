@@ -1,13 +1,14 @@
-import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
 type InputProps = {
   title: string;
   placeholder: string;
+  value: string;
+  setValue: (e: string) => void;
 };
 
-const InputForm = ({ title, placeholder }: InputProps) => {
-  const [inputValue, setInputValue] = useState("");
+const InputForm = ({ title, placeholder, value, setValue }: InputProps) => {
+  // const [inputValue, setInputValue] = useState("");
 
   return (
     <>
@@ -16,8 +17,8 @@ const InputForm = ({ title, placeholder }: InputProps) => {
       </View>
       <TextInput
         style={styles.loginInput}
-        onChangeText={setInputValue}
-        value={inputValue}
+        onChangeText={(e) => setValue(e)}
+        value={value}
         placeholder={placeholder}
         placeholderTextColor="#DDDDDD"
       />

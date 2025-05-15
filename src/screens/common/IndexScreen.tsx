@@ -5,7 +5,7 @@ const IndexScreen = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.LogoWrapper}>
+        <View style={styles.Wrapper}>
           <Image
             style={styles.img}
             source={require("@/assets/images/common/SymbolLogo.png")}
@@ -16,6 +16,9 @@ const IndexScreen = () => {
           <TouchableOpacity style={styles.trainerLoginButton}>
             <Text style={styles.trainerLoginText}>트레이너 로그인</Text>
           </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.signupText}>회원가입</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -24,16 +27,18 @@ const IndexScreen = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    // position: "relative",
   },
-  LogoWrapper: {
+  Wrapper: {
     width: "70%",
-    marginTop: 20,
-    marginBottom: 20,
     margin: "auto",
+    top: "50%",
+    // marginTop: 150,
   },
   img: {
     width: "100%",
     objectFit: "contain",
+    marginBottom: 50,
   },
   userLoginButton: {
     width: "100%",
@@ -65,6 +70,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 15,
+  },
+  signupText: {
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "#c5c5c5",
+    textAlign: "center",
+    width: "100%",
+    // marginTop: 250,
+    top: 300,
   },
 });
 export default IndexScreen;
