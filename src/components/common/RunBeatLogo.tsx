@@ -17,9 +17,10 @@ const RunBeatLogo = () => {
 const styles = StyleSheet.create({
   runBeatLogo: {
     width: 120,
-    top: 0,
-    left: 0,
-    position: "fixed",
+    // top: 0,
+    // left: 0,
+    // position: "fixed",
+    marginBottom: 20,
   },
   img: {
     width: "100%",
