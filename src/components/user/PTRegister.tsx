@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Calendar, LocaleConfig } from "react-native-calendars";
+import ButtonForm from "../common/ButtonForm";
 LocaleConfig.locales["ko"] = {
   monthNames: [
     "01월 ",
@@ -37,6 +38,10 @@ LocaleConfig.defaultLocale = "ko";
 
 const PTRegister = () => {
   const [selectedDate, setSelectedDate] = useState("");
+
+  const registerButton = () => {
+    return console.log("예약하기 성공");
+  };
   return (
     <View>
       <Calendar
@@ -51,6 +56,7 @@ const PTRegister = () => {
           arrowColor: "#3C23D7",
         }}
       />
+      <ButtonForm name={"예약하기"} onPress={registerButton}></ButtonForm>
     </View>
   );
 };
