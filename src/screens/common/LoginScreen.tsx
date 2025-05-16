@@ -1,25 +1,27 @@
+import { signin } from "@/libs/api/auth";
 import ButtonForm from "@/src/components/common/ButtonForm";
 import InputForm from "@/src/components/common/InputForm";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
+
 const LoginScreen = () => {
   const [IdValue, setIdValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [isChecked, setChecked] = useState(false);
 
   const loginHandler = async () => {
-    if (isChecked) {
-      try {
-        await AsyncStorage.setItem("userId", IdValue);
-        await AsyncStorage.setItem("userPassword", passwordValue);
-        console.log("저장 완료:", IdValue, passwordValue);
-      } catch (error) {
-        console.error("저장 오류:", error);
+    try {
+      await signin(IdValue, passwordValue);
+      Alert.alert("로그인 성공");
+
+      if (isChecked) {
+        console.log("자동로그인 체크됨 (refreshToken은 SecureStore에 저장됨)");
       }
-    } else {
-      console.log("체크박스가 체크되지 않았으므로 저장되지 않음.");
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "알 수 없는 오류 발생";
+      Alert.alert("로그인 실패", message);
     }
   };
 
@@ -27,13 +29,13 @@ const LoginScreen = () => {
     <View style={styles.section}>
       <InputForm
         value={IdValue}
-        setValue={(e: string) => setIdValue(e)}
+        setValue={setIdValue}
         title="아이디"
         placeholder="아이디를 입력하세요"
       />
       <InputForm
         value={passwordValue}
-        setValue={(e: string) => setPasswordValue(e)}
+        setValue={setPasswordValue}
         title="비밀번호"
         placeholder="비밀번호를 입력하세요"
       />
@@ -50,12 +52,12 @@ const LoginScreen = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   section: {
     paddingTop: 50,
   },
   autoLogin: {
-    display: "flex",
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 10,
@@ -70,4 +72,5 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
+
 export default LoginScreen;
