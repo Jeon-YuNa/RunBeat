@@ -1,12 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import RunBeatLogo from "./RunBeatLogo";
 
 const UseContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <RunBeatLogo />
       {children}
-    </View>
+    </SafeAreaView>
   );
 };
 

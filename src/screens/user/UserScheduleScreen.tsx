@@ -1,11 +1,11 @@
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import TrainerChatListScreen from "../trainer/TrainerChatListScreen";
 
 const UserScheduleScreen = () => {
   return (
-    <SafeAreaView>
-      <Text>유저가 날마다 기록하는 페이지</Text>
-    </SafeAreaView>
+    <>
+      <TrainerChatListScreen />
+      {/* <Text>유저가 날마다 기록하는 페이지</Text> */}
+    </>
   );
 };
 export default UserScheduleScreen;
